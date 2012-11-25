@@ -65,7 +65,13 @@ This way we can use different devise views for different authenticator models. F
 ### Asset pipeline
 Make sure that your main `application.css` and `application.js` files don't include your bootstrap styles and code.
 
+## Ugly setups
+Now for the uglier pieces of copy-paste. Migrations and locales for Devise.
+
+Note, the migration you can generate yourself. We have (nearly) everything enabled, but you could choose a different set.
+
 ### Migrations
+
 ```
 class DeviseCreateAdmins < ActiveRecord::Migration
   def change
@@ -117,4 +123,41 @@ class DeviseCreateAdmins < ActiveRecord::Migration
     # add_index :admins, :authentication_token, :unique => true
   end
 end
+```
+
+### Locales
+
+Note: If someone knows of a nicer way of doing this, please tell us.
+
+Add the following code to the end of the `devise.en.yml` file under `config/locales`.
+
+Make sure that everything is on the same level as the other devise trees.
+
+```
+admin_confirmations:
+      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
+      send_paranoid_instructions: 'If your email address exists in our database, you will receive an email with instructions about how to confirm your account in a few minutes.'
+      confirmed: 'Your account was successfully confirmed. You are now signed in.'
+    admin_registrations:
+      signed_up: 'Welcome! You have signed up successfully.'
+      signed_up_but_unconfirmed: 'A message with a confirmation link has been sent to your email address. Please open the link to activate your account.'
+      signed_up_but_inactive: 'You have signed up successfully. However, we could not sign you in because your account is not yet activated.'
+      signed_up_but_locked: 'You have signed up successfully. However, we could not sign you in because your account is locked.'
+      updated: 'You updated your account successfully.'
+      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
+      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+    admin_unlocks:
+      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
+      unlocked: 'Your account has been unlocked successfully. Please sign in to continue.'
+      send_paranoid_instructions: 'If your account exists, you will receive an email with instructions about how to unlock it in a few minutes.'
+    admin_omniauth_callbacks:
+      success: 'Successfully authenticated from %{kind} account.'
+      failure: 'Could not authenticate you from %{kind} because "%{reason}".'
+    admin_mailer:
+      confirmation_instructions:
+        subject: 'Confirmation instructions'
+      reset_password_instructions:
+        subject: 'Reset password instructions'
+      unlock_instructions:
+        subject: 'Unlock Instructions'
 ```
