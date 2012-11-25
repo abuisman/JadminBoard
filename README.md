@@ -69,6 +69,8 @@ Now for the uglier pieces of copy-paste. Migrations and locales for Devise.
 
 Note, the migration you can generate yourself. We have (nearly) everything enabled, but you could choose a different set.
 
+`Be sure to add a :name to your model though!`
+
 ### Migrations
 
 ```
