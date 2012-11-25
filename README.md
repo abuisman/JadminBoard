@@ -27,7 +27,6 @@ gem 'compass'
 gem 'compass-rails'
  
 ```
-//TODO: Add instructions for bootstrap and devise installs
 
 For now, first install devise, find that out please :).
 
