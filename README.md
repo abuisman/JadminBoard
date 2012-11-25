@@ -162,3 +162,17 @@ admin_confirmations:
       unlock_instructions:
         subject: 'Unlock Instructions'
 ```
+
+## On controllers
+As you might have noticed, we have a base admin controller. This is done so that you have a sort of application_controller, but for your admin things.
+
+When you create a new controller for your admin area, just make it extend from the base admin controller, and put it in the `Admin::` namespace, like so:
+
+```
+class Admin::SomeController < Admin::BaseController
+
+
+end
+
+```
+
