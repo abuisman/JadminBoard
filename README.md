@@ -61,6 +61,12 @@ config.scoped_views = true
 
 This way we can use different devise views for different authenticator models. For example, you want to have Devise for 'normal' users, this way the admin will have a different 'forgot password' view than the user.
 
+### Simple-forms
+We use simple forms for creating admin forms, it saves a lot of code. Also, it supports bootstrap out of the box.
+
+Run:
+`rails generate simple_form:install --bootstrap`
+
 ### Asset pipeline
 Make sure that your main `application.css` and `application.js` files don't include your bootstrap styles and code.
 
