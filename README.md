@@ -25,6 +25,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'compass'
 gem 'compass-rails'
+gem 'simple_form'
  
 ```
 
